@@ -5,7 +5,7 @@ from utils import load_yaml
 
 def main():
 
-    config_path = "/workspace/neruon/vision/configs/classification.yaml"
+    config_path = "/workspace/neuron/vision/configs/classification.yaml"
     config = load_yaml(config_path)
     backbone = BackBone(config)
     backbone = backbone.build()
