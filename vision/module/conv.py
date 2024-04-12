@@ -14,7 +14,7 @@ def auto_padding(kernel, padding=None, dilation=1):
 
 
 class Conv(nn.Module):
-    default_activation = nn.ReLU()
+    default_activation = nn.ReLU(inplace=True)
 
     def __init__(
         self,

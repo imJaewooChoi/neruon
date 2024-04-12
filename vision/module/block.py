@@ -1,17 +1,20 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from conv import Conv
+from .conv import Conv
 
 
 class BasicStem(nn.Module):
     def __init__(self, c1, c2):
         super().__init__()
-        self.conv1 = Conv(c1, c2, kernel_size=7, stride=2, padding=3, act=True)
-        self.pool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+
+        self.stem = nn.Sequential(
+            Conv(c1, c2, kernel_size=7, stride=2, padding=3, act=True),
+            nn.MaxPool2d(kernel_size=3, stride=2, padding=1),
+        )
 
     def forward(self, x):
-        return self.pool(self.conv1(x))
+        return self.stem(x)
 
 
 class BasicHead(nn.Module):
@@ -54,10 +57,3 @@ class ResNeXtBlock(ResNetBlock):
         self.conv2 = Conv(
             c2, c2, kernel_size=3, stride=stride, groups=cardinality, act=True
         )
-
-
-if __name__ == "__main__":
-    c1 = 64
-    c2 = 64
-    block = ResNetBlock(c1, c2)
-    print(block)
