@@ -1,26 +1,26 @@
 Data:
-  data_dir: /workspace/neruon/vision/data/classification/cifar10
-  valid_size: 0.3
+  data_dir: /workspace/neuron/vision/data/cifar100
+  valid_size: 0.2
   image_size: 32
-  batch_size: 512
+  batch_size: 2048
 
 
 Helper:
   loss: cross_entropy
   optimizer: adam
-  lr: 0.0034
+  lr: 0.000034
   weight_decay: 0.0001
   scheduler: cosine_warmup
 
 Train:
-  epoch: 300
+  epoch: 500
   device: gpu
 
 Model:
-  name: resnext50
+  name: resnext152
 
 Logger:
-  dir: /workspace/neruon/vision/log
-  project: classification
+  dir: /workspace/neuron/vision/log
+  project: backbone
 seed: 42
-num_classes: 10
+num_classes: 100

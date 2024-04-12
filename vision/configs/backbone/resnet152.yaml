@@ -7,4 +7,4 @@ Body:
   num_blocks: [3, 8, 36, 3]
 Head:
   in_channel: 2048
-  out_channel: 10
+  out_channel: 100

@@ -3,8 +3,8 @@ Stem:
   out_channel: 64
 Body:
   in_channel: [64, 256, 512, 1024]
-  out_channel: [64, 128, 256, 512]
-  num_blocks: [3, 4, 23, 3]
+  out_channel: [128, 256, 512, 1024]
+  num_blocks: [3, 8, 36, 3]
 Head:
   in_channel: 2048
   out_channel: 100
