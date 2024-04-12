@@ -29,9 +29,6 @@ class LitModule(pl.LightningModule):
         self.test_accuracy = Accuracy(
             task="multiclass", num_classes=self.hparams["num_classes"]
         )
-        self.test_f1 = F1Score(
-            task="multiclass", num_classes=self.hparams["num_classes"]
-        )
 
     def forward(self, x):
         return self.model(x)
@@ -89,11 +86,9 @@ class LitModule(pl.LightningModule):
     def test_step(self, batch, batch_idx):
         _, labels, predict_labels = self._shared_step(batch)
         self.test_accuracy(predict_labels, labels)
-        self.test_f1(predict_labels, labels)
         self.log(
             "test_acc", self.test_accuracy, on_epoch=True, on_step=False, prog_bar=True
         )
-        self.log("test_f1", self.test_f1, on_epoch=True, on_step=False, prog_bar=True)
 
     def _shared_step(self, batch):
         images, labels = batch

@@ -103,7 +103,7 @@ if __name__ == "__main__":
     import yaml
     import pickle
 
-    with open("/workspace/dl_choi/vision/configs/classification.yaml") as f:
+    with open("/workspace/neuron/vision/configs/classification.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 
     dataset = CustomDataset(config, "test")

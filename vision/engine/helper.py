@@ -46,8 +46,8 @@ class Helper:
 
             return CosineAnnealingWarmUpRestarts(
                 optimizer,
-                T_0=100,
-                T_mult=1,
+                T_0=50,
+                T_mult=2,
                 eta_max=0.1,
                 T_up=10,
                 gamma=0.5,
