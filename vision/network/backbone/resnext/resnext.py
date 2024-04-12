@@ -9,6 +9,7 @@ class ResNeXt(nn.Module):
         self.stem = BasicStem(
             config["Stem"]["in_channel"], config["Stem"]["out_channel"]
         )
+
         self.body = ResNeXtBody(
             config["Body"]["in_channel"],
             config["Body"]["out_channel"],

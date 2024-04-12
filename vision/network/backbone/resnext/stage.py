@@ -1,5 +1,5 @@
 import torch.nn as nn
-from block import ResNeXtBlock
+from module import ResNeXtBlock
 
 
 class ResNeXtStage(nn.Module):
